@@ -90,7 +90,7 @@ def plot_interactive_density_matrix(rho, n, component='Real'):
     elif component == 'Imaginary Part':
         data = np.imag(rho)
         z_range = [-0.5, 0.5] 
-    else: # Absolute Value
+    else: # Magnitude
         data = np.abs(rho)
         z_range = [0.0, 1.0]
     
@@ -139,7 +139,7 @@ with col1:
  
     rho_obj = DensityMatrix(rho)
     vn_entropy = entropy(rho_obj)
-    st.metric("Von Neumann Entropy", f"{vn_entropy:.4f}", help="Quantifies information lost to the environment.")
+    st.metric("Von Neumann Entropy", f"{vn_entropy:.4f}", help="Establishes Information Lost to the Environment.")
 
     st.divider()
     
@@ -174,7 +174,7 @@ with col2:
    
     view_mode = st.radio(
         "Visualization Mode:",
-        ('Real Part', 'Imaginary Part', 'Absolute Value'),
+        ('Real Part', 'Imaginary Part', 'Magnitude'),
         horizontal=True
     )
     
@@ -182,4 +182,5 @@ with col2:
     st.plotly_chart(fig, use_container_width=True)
 
 st.divider()
+
 st.caption("Developed by Abdullah Said Töngel")
