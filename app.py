@@ -8,12 +8,12 @@ from qiskit.quantum_info import entropy, DensityMatrix
 from qiskit.quantum_info import state_fidelity, Statevector
 
 st.set_page_config(
-    page_title="Quantum Decoherence Lab",
+    page_title="Quantum Decoherence Simulation",
     page_icon="⚛️",
     layout="wide"
 )
 
-st.title("⚛️ Quantum Decoherence Dynamics: GHZ State")
+st.title("⚛️ Quantum Decoherence Dynamics of GHZ States")
 
 
 
@@ -28,7 +28,7 @@ n_qubits = st.sidebar.slider(
 
 
 noise_level = st.sidebar.slider(
-    "Decoherence Level (Phase Damping)", 
+    "Noise Level (Phase Damping)", 
     min_value=0.0, 
     max_value=1.0, 
     value=0.0,
@@ -139,7 +139,7 @@ with col1:
  
     rho_obj = DensityMatrix(rho)
     vn_entropy = entropy(rho_obj)
-    st.metric("Von Neumann Entropy", f"{vn_entropy:.4f}", help="Establishes Information Lost to the Environment.")
+    st.metric("Von Neumann Entropy", f"{vn_entropy:.4f}", help="Information Lost to the Environment.")
 
     st.divider()
     
@@ -184,3 +184,4 @@ with col2:
 st.divider()
 
 st.caption("Developed by Abdullah Said Töngel")
+
